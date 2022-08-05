@@ -16,6 +16,31 @@ app.use(express.urlencoded({ extended: true }));
 app.post('/',  fileMiddleware.single('image'), async (req, res) => {
   console.log('=========', req.body.email);
   console.log('=====+++++', req.file);
+  try {
+    const {name, gender, password, email, birth} = req.body;
+    console.log(name, 'name');
+  let image;
+  if(req.file?.filename){
+    image = 'http://localhost:3001/images/' + req.file.filename
+  } else {
+    image = 'https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg?auto=compress&cs=tinysrgb&w=1600'
+  }
+  const newUser = await User.create({
+    name,
+    birth,
+    gender,
+    password,
+    email,
+    image,
+  })
+  console.log(newUser, 'newUser');
+  res.status(201).json(newUser);
+  } catch (error) {
+    console.log(error.message);
+      res.sendStatus(406);
+  }
+  
+
 })
 
 

@@ -25,27 +25,27 @@ const submitHeandler = (e)=> {
 const data = new FormData();
 data.append('image', file)
 data.append("email", inputs.email);
-// data.append("name", inputs.name);
-// data.append("password", inputs.password);
-// data.append("gender", inputs.gender);
-// data.append("birth", inputs.birth);
+data.append("name", inputs.name);
+data.append("password", inputs.password);
+data.append("gender", inputs.gender);
+data.append("birth", inputs.birth);
 axios.post('http://localhost:3001/', data, config).then((res) => console.log(res, 'res'))
 console.log(data, 'data');//--
 }
   return (
     <div className="registrationForm">
          <Form onSubmit={submitHeandler}>
-      {/* <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Name</Form.Label>
         <Form.Control type="text"  name="name" onChange={inputHandler} placeholder="например...Вася" />
-      </Form.Group> */}
+      </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Email</Form.Label>
         <Form.Control type="email"  name="email" onChange={inputHandler} placeholder=" ...email" />
       </Form.Group>
-      {/* <Form.Select
-            value={inputs.category}
-            name="category"
+      <Form.Select
+            value={inputs.gender}
+            name="gender"
             onChange={inputHandler}
             className="form-select"
             aria-label="Default select example"
@@ -60,7 +60,7 @@ console.log(data, 'data');//--
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Birth date</Form.Label>
         <Form.Control type="date"  name="birth" onChange={inputHandler} placeholder=" ...11.01.2011" />
-      </Form.Group> */}
+      </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>add picture</Form.Label>
         <Form.Control type="file"  name="file" onChange={handleFile} placeholder=" ...picture" />
