@@ -21,6 +21,7 @@ const sessionConfig = {
   resave: false,
   saveUninitialized: false,
   httpOnly: true,
+  secure: true,
   cookie: { expires: 24 * 60 * 60e3 },
 };
 
@@ -37,13 +38,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-app.use((req, res, next) => {
-  if (req.session.userId) {
-    res.locals.userId = req.session.userId;
-    res.locals.userName = req.session.userName;
-  }
-  next();
-});
+// app.use((req, res, next) => {
+//   if (req.session.userId) {
+//     res.locals.userId = req.session.userId;
+//     res.locals.userName = req.session.userName;
+//   }
+//   next();
+// });
 
 app.use("/images", express.static(path.join(__dirname, "images")));
 
@@ -104,7 +105,7 @@ console.log(newUser.name, 'newUser.name');//--
     console.log(newUser, 'newUser');//++
     const userInfo = [newUser.id, newUser.name, newUser.email];
    
-   return res.status(201).json({userInfo});
+   return res.status(201).json(userInfo);
   }
 
 

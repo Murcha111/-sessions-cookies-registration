@@ -29,6 +29,7 @@ data.append("name", inputs.name);
 data.append("password", inputs.password);
 data.append("gender", inputs.gender);
 data.append("birth", inputs.birth);
+axios.defaults.withCredentials = true;
 axios.post('http://localhost:3001/registration', data, config).then((res) => console.log(res.data, 'res'))
 
 }
@@ -50,7 +51,7 @@ axios.post('http://localhost:3001/registration', data, config).then((res) => con
             className="form-select"
             aria-label="Default select example"
           >
-            <option value="woman">woman</option>
+            <option  value="woman">woman</option>
             <option value="man">man</option>
       </Form.Select>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
