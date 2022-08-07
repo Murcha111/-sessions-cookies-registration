@@ -29,8 +29,8 @@ data.append("name", inputs.name);
 data.append("password", inputs.password);
 data.append("gender", inputs.gender);
 data.append("birth", inputs.birth);
-axios.post('http://localhost:3001/', data, config).then((res) => console.log(res, 'res'))
-console.log(data, 'data');//--
+axios.post('http://localhost:3001/registration', data, config).then((res) => console.log(res.data, 'res'))
+
 }
   return (
     <div className="registrationForm">
