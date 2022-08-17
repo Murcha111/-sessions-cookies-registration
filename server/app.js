@@ -48,7 +48,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/images", express.static(path.join(__dirname, "images")));
 
-app.post('/registration',  fileMiddleware.single('image'), async (req, res) => {
+app.post('/',  fileMiddleware.single('image'), async (req, res) => {
   
   console.log('=========', req.body);//++
   // console.log('=====+++++', req.file);//++
@@ -103,8 +103,8 @@ console.log(newUser.name, 'newUser.name');//--
   
   
     console.log(newUser, 'newUser');//++
-    const userInfo = [newUser.id, newUser.name, newUser.email];
-   
+    //---
+   console.log(userInfo, "userInfo++++++++++++++")
    return res.status(201).json(userInfo);
   }
 

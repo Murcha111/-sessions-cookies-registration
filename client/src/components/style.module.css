@@ -1,0 +1,9 @@
+table {
+  border: green solid 2px;
+  margin: 0 auto;
+  margin-top: 230px;
+}
+
+td{
+  width: 150px;
+}
